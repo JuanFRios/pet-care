@@ -11,6 +11,7 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
+      screenOptions={{headerShown: false}}
       tabBar={props => <CustomTab activeBackgroundColor={"#5856D6"} activeTintColor={"#fff"} inactiveBackgroundColor={"transparent"} inactiveTintColor={"gray"} {...props} />}
 >
 <Tab.Screen

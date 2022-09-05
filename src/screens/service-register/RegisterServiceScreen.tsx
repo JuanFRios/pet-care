@@ -1,13 +1,15 @@
 import React from 'react'
 import { Text, View, StyleSheet} from 'react-native';
+import MedicineForm from './MedicineForm';
 
 
 
 export const RegisterServiceScreen = () => {
-
+    
     return (
         <View style={ styles.container }>
             <Text>Nuevo registro de servicio</Text>
+            <MedicineForm />
         </View>
     )
 }

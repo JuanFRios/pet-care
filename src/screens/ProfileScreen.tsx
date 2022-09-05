@@ -1,13 +1,15 @@
-import React from 'react'
-import { Text, View, StyleSheet} from 'react-native';
+import React, { useContext } from 'react'
+import { Text, View, StyleSheet, Button} from 'react-native';
+import { AuthContext } from '../context/AuthContext';
 
 
 
 export const ProfileScreen = () => {
-
+    const { user, token, logOut } = useContext(AuthContext);
     return (
         <View style={ styles.container }>
             <Text>Perfil</Text>
+            <Button title="logout" color="#5856D6" onPress={logOut} />
         </View>
     )
 }

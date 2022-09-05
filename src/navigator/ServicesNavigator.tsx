@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { RegisterServiceScreen } from "../screens/RegisterServiceScreen";
-import { HomeScreen } from "../screens/HomeScreen";
+import { RegisterServiceScreen } from "../screens/service-register/RegisterServiceScreen";
+import { HomeScreen } from "../screens/home/HomeScreen";
 
 export type ServicesStackParams = {
   HomeScreen: undefined;
@@ -26,13 +26,15 @@ export const ServicesNavigator = () => {
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{ title: "Categorias" }}
+        options={{
+          headerShown: false,
+        }}
       />
 
       <Stack.Screen
         name="RegisterServiceScreen"
         component={RegisterServiceScreen}
-        options={{ title: "Registro de servicio" }}
+        options={{ title: "Registro de servicio", headerShown: true, }}
       />
     </Stack.Navigator>
   );

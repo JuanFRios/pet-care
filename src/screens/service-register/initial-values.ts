@@ -1,0 +1,21 @@
+export const medicineFormInitialValues = () => ({
+    servicio: "a354bbba-8f48-4d1f-b6d7-0fa43ceb313a",
+    nombrePaciente: "Arturito",
+    edadPaciente: "4",
+    pesoKg: "30",
+    nombrePropietario: "Juan Esteban Gutiérrez Zuluaga",
+    telefonoPropietario: "4556657",
+    correoPropietario: "juanesguti19@gmail.com",
+    sintomas: "No tiene buen apetito",
+    antecedentes: "Parvovirosis, moquillo y hepatitis infecciosa",
+    diagnostico: "Posee gastroenteritis",
+    tratamiento: "Dieta blanda y se debe fomentar el consumo de agua",
+    especie: "canino",
+    razaPaciente: "Golden retriever",
+    sexoPaciente: "macho",
+    esAtencionDomiciliaria: true,
+    total: 160000,
+    indicacionesPropietario: "Le gusta jugar mucho con botellas",
+    cuidadosRequeridos: "No le gusta comer mucho, solo come de Pedigree",
+    horasEstadia: "4"
+});
