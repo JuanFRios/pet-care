@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import CategoryCard from "./CategoryCard";
 import { categories } from "../../interfaces/appInterfaces";
 import tw from "twrnc";
+import { BackgroundHome } from "../../components/BackgroundHome";
 
 interface Props extends StackScreenProps<ServicesStackParams, "HomeScreen"> {}
 
@@ -15,12 +16,15 @@ export const HomeScreen = ({ navigation }: Props) => {
   const { user, token, logOut } = useContext(AuthContext);
 
   return (
-    <View style={{ flex: 1, marginHorizontal: 10 }}>
-      <View style={tw`flex-row  items-center mt-10`}>
-        <Text style={tw`text-2xl font-thin`}>Hola, </Text>
-        <Text style={tw`text-2xl font-bold text-[#5856D6]`}>Juan Ríos</Text>
+    <View style={{ flex: 1 }}>
+      <BackgroundHome />
+      <View style={tw`h-44 px-4`}>
+        <View style={tw`flex-row  items-center mt-10`}>
+          <Text style={tw`text-2xl font-thin text-white`}>Hola, </Text>
+          <Text style={tw`text-2xl font-bold text-white`}>Juan Ríos</Text>
+        </View>
+        <Text style={tw`text-2xl font-light text-white`}>Qué deseas registrar? </Text>
       </View>
-      <Text style={tw`text-2xl font-light`}>Qué deseas registrar? </Text>
       <TouchableOpacity
         activeOpacity={0.8}
         style={{ marginRight: 10 }}

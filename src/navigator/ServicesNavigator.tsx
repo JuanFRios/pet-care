@@ -34,7 +34,7 @@ export const ServicesNavigator = () => {
       <Stack.Screen
         name="RegisterServiceScreen"
         component={RegisterServiceScreen}
-        options={{ title: "Registro de servicio", headerShown: true, }}
+        options={{ title: "Registro de servicio", headerShown: false, }}
       />
     </Stack.Navigator>
   );

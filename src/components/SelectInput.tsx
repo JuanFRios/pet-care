@@ -14,26 +14,20 @@ interface IProps {
 const SelectInput = ({ title, setField, name, items }: IProps) => {
   const [selectedLanguage, setSelectedLanguage] = useState();
   return (
-    <ScrollView>
-      <View>
-        <Text style={tw`my-0 pb-0 text-[#5856D6]`}>{title}</Text>
-        <Picker
-          selectedValue={selectedLanguage}
-          onValueChange={(itemValue, itemIndex) => {
-            setSelectedLanguage(itemValue);
-            setField(name, itemValue);
-          }}
-        >
-          {items.map((item) => (
-            <Picker.Item
-              label={item.label}
-              value={item.value}
-              key={item.value}
-            />
-          ))}
-        </Picker>
-      </View>
-    </ScrollView>
+    <View>
+      <Text style={tw`my-0 pb-0 text-[#5856D6]`}>{title}</Text>
+      <Picker
+        selectedValue={selectedLanguage}
+        onValueChange={(itemValue, itemIndex) => {
+          setSelectedLanguage(itemValue);
+          setField(name, itemValue);
+        }}
+      >
+        {items.map((item) => (
+          <Picker.Item label={item.label} value={item.value} key={item.value} />
+        ))}
+      </Picker>
+    </View>
   );
 };
 export default SelectInput;
