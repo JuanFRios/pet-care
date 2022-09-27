@@ -3,20 +3,22 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { Navigator } from "./src/navigator/Navigator";
 import { AuthProvider } from "./src/context/AuthContext";
-import { ServicesProvider } from "./src/context/ServicesContext";
+import { RootSiblingParent } from 'react-native-root-siblings';
 import TabNavigator from "./src/navigator/TabNavigator";
 import { SafeAreaView } from "react-native";
 
 const AppState = ({ children }: any) => {
   return (
     <AuthProvider>
-      <ServicesProvider>{children}</ServicesProvider>
+      {children}
     </AuthProvider>
   );
 };
 
 const App = () => {
   return (
+    <RootSiblingParent> 
+
     <NavigationContainer>
       <AppState>
         <SafeAreaView style={{flex: 1}}>
@@ -24,6 +26,7 @@ const App = () => {
         </SafeAreaView>
       </AppState>
     </NavigationContainer>
+    </RootSiblingParent>
   );
 };
 

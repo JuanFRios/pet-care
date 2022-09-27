@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import React from "react";
 import { Button, Text, View } from "react-native";
-import { currencyFormat, medicineFormInitialValues, validationSchemaMedicineForm } from "./initial-values";
+import { currencyFormat, medicineFormInitialValues, spaFormInitialValues, validationSchemaMedicineForm, validationSchemaSpaForm } from "./initial-values";
 import tw from "twrnc";
 import Input from "../../components/Input";
 import SubtitleForm from "../../components/SubtitleForm";
@@ -10,17 +10,14 @@ import { ScrollView } from "react-native-gesture-handler";
 import RadioGroup from "../../components/RadioGroup";
 import SwitchInput from "../../components/Switch";
 import Textarea from "../../components/Textarea";
-import { ServicesContext } from "../../context/ServicesContext";
-
-const MedicineForm = ( {onSubmit}: any) => {
+const SpaForm = ({onSubmit}: any) => {
   const [ price, setPrice ] = React.useState(0);
-  
 
   return (
     <>
       <Formik
-        initialValues={medicineFormInitialValues()}
-        validationSchema={validationSchemaMedicineForm}
+        initialValues={spaFormInitialValues()}
+        validationSchema={validationSchemaSpaForm}
         onSubmit={(values) => {
           const valuesToSave = {...values, total: price}
           onSubmit(valuesToSave)}}
@@ -42,20 +39,30 @@ const MedicineForm = ( {onSubmit}: any) => {
                   setField={setFieldValue}
                   items={[
                     {
-                        value: "ec80236e-f3a0-4fd5-a48a-5465566239a1",
-                        label: "Medicina preventiva",
-                        precio: 40000
-                    },
-                    {
-                      value: "a354bbba-8f48-4d1f-b6d7-0fa43ceb313a",
-                      label: "Consulta",
-                        precio: 60000
-                    },
-                    {
-                      value: "2ce5d7ba-b970-4118-953e-fe4f7cc68333",
-                      label: "Etología",
-                        precio: 70000
-                    }
+                      value: "ca89e3ee-9082-4b7b-a11f-76b944138f0b",
+                      label: "Cepillado",
+                      precio: 14000
+                  },
+                  {
+                      value: "7751c980-f401-4fe5-aca8-69678999da21",
+                      label: "Baño",
+                      precio: 16000
+                  },
+                  {
+                      value: "0ddcf5e5-a60c-42c7-b67f-60916726c08b",
+                      label: "Corte de uñas",
+                      precio: 20000
+                  },
+                  {
+                      value: "c8358313-fd0c-431c-94cd-d647fda9d1b5",
+                      label: "Corte de pelo",
+                      precio: 22000
+                  },
+                  {
+                      value: "fa5c9af3-6652-4514-893d-017536a10b3c",
+                      label: "Limpieza bucal",
+                      precio: 18000
+                  }
                 ]}
                 />
                 <View style={tw`mt-4`}>
@@ -161,36 +168,12 @@ const MedicineForm = ( {onSubmit}: any) => {
                     icon="pricetag"
                   />
                   <Textarea
-                    titulo="sintomas"
-                    placeholder="Ingrese los sintomas"
-                    handleChange={handleChange("sintomas")}
-                    name="sintomas"
-                    handleBlur={handleBlur("sintomas")}
-                    value={values.sintomas}
-                  />
-                  <Textarea
-                    titulo="Antecedentes"
-                    placeholder="Ingrese los antecedentes"
-                    handleChange={handleChange("antecedentes")}
-                    name="antecedentes"
-                    handleBlur={handleBlur("antecedentes")}
-                    value={values.antecedentes}
-                  />
-                  <Textarea
-                    titulo="Diagnostico"
-                    placeholder="Ingrese el diagnostico"
-                    handleChange={handleChange("diagnostico")}
-                    name="diagnostico"
-                    handleBlur={handleBlur("diagnostico")}
-                    value={values.diagnostico}
-                  />
-                  <Textarea
-                    titulo="Tratamiento"
-                    placeholder="Ingrese el tratamiento"
-                    handleChange={handleChange("tratamiento")}
-                    name="tratamiento"
-                    handleBlur={handleBlur("tratamiento")}
-                    value={values.tratamiento}
+                    titulo="Indicaciones Propietario"
+                    placeholder="Ingrese las indicaciones"
+                    handleChange={handleChange("indicacionesPropietario")}
+                    name="indicacionesPropietario"
+                    handleBlur={handleBlur("indicacionesPropietario")}
+                    value={values.indicacionesPropietario}
                   />
                   <SwitchInput
                     titulo="Atención a domicilio"
@@ -221,4 +204,4 @@ const MedicineForm = ( {onSubmit}: any) => {
   );
 };
 
-export default MedicineForm;
+export default SpaForm;

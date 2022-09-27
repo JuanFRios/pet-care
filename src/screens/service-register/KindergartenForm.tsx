@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import React from "react";
 import { Button, Text, View } from "react-native";
-import { currencyFormat, medicineFormInitialValues, validationSchemaMedicineForm } from "./initial-values";
+import { currencyFormat, kinderGartenFormInitialValues, validationSchemaKindergartenForm, validationSchemaMedicineForm, validationSchemaSpaForm } from "./initial-values";
 import tw from "twrnc";
 import Input from "../../components/Input";
 import SubtitleForm from "../../components/SubtitleForm";
@@ -10,17 +10,15 @@ import { ScrollView } from "react-native-gesture-handler";
 import RadioGroup from "../../components/RadioGroup";
 import SwitchInput from "../../components/Switch";
 import Textarea from "../../components/Textarea";
-import { ServicesContext } from "../../context/ServicesContext";
 
-const MedicineForm = ( {onSubmit}: any) => {
+const KindergartenForm = ({onSubmit}: any) => {
   const [ price, setPrice ] = React.useState(0);
-  
 
   return (
     <>
       <Formik
-        initialValues={medicineFormInitialValues()}
-        validationSchema={validationSchemaMedicineForm}
+        initialValues={kinderGartenFormInitialValues()}
+        validationSchema={validationSchemaKindergartenForm}
         onSubmit={(values) => {
           const valuesToSave = {...values, total: price}
           onSubmit(valuesToSave)}}
@@ -42,20 +40,10 @@ const MedicineForm = ( {onSubmit}: any) => {
                   setField={setFieldValue}
                   items={[
                     {
-                        value: "ec80236e-f3a0-4fd5-a48a-5465566239a1",
-                        label: "Medicina preventiva",
-                        precio: 40000
-                    },
-                    {
-                      value: "a354bbba-8f48-4d1f-b6d7-0fa43ceb313a",
-                      label: "Consulta",
-                        precio: 60000
-                    },
-                    {
-                      value: "2ce5d7ba-b970-4118-953e-fe4f7cc68333",
-                      label: "Etología",
-                        precio: 70000
-                    }
+                      value: "29cd9951-4007-4340-b0e8-785439a08bd0",
+                      label: "Guardería",
+                      precio: 60000
+                  }
                 ]}
                 />
                 <View style={tw`mt-4`}>
@@ -161,36 +149,20 @@ const MedicineForm = ( {onSubmit}: any) => {
                     icon="pricetag"
                   />
                   <Textarea
-                    titulo="sintomas"
-                    placeholder="Ingrese los sintomas"
-                    handleChange={handleChange("sintomas")}
-                    name="sintomas"
-                    handleBlur={handleBlur("sintomas")}
-                    value={values.sintomas}
+                    titulo="Cuidados Requeridos"
+                    placeholder="Ingrese los cuidados"
+                    handleChange={handleChange("cuidadosRequeridos")}
+                    name="cuidadosRequeridos"
+                    handleBlur={handleBlur("cuidadosRequeridos")}
+                    value={values.cuidadosRequeridos}
                   />
-                  <Textarea
-                    titulo="Antecedentes"
-                    placeholder="Ingrese los antecedentes"
-                    handleChange={handleChange("antecedentes")}
-                    name="antecedentes"
-                    handleBlur={handleBlur("antecedentes")}
-                    value={values.antecedentes}
-                  />
-                  <Textarea
-                    titulo="Diagnostico"
-                    placeholder="Ingrese el diagnostico"
-                    handleChange={handleChange("diagnostico")}
-                    name="diagnostico"
-                    handleBlur={handleBlur("diagnostico")}
-                    value={values.diagnostico}
-                  />
-                  <Textarea
-                    titulo="Tratamiento"
-                    placeholder="Ingrese el tratamiento"
-                    handleChange={handleChange("tratamiento")}
-                    name="tratamiento"
-                    handleBlur={handleBlur("tratamiento")}
-                    value={values.tratamiento}
+                  <Input
+                    titulo="Horas Estadia"
+                    placeholder=""
+                    handleChange={handleChange("horasEstadia")}
+                    name="horasEstadia"
+                    handleBlur={handleBlur("horasEstadia")}
+                    value={values.horasEstadia}
                   />
                   <SwitchInput
                     titulo="Atención a domicilio"
@@ -221,4 +193,4 @@ const MedicineForm = ( {onSubmit}: any) => {
   );
 };
 
-export default MedicineForm;
+export default KindergartenForm;

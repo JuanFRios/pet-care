@@ -4,7 +4,7 @@ import CustomTab from "./CustomTab";
 import { Ionicons } from "@expo/vector-icons";
 import { ServicesNavigator } from './ServicesNavigator';
 import { ProfileScreen } from "../screens/ProfileScreen";
-import { ServicesHistoryScreen } from "../screens/ServicesHistoryScreen";
+import { ServicesHistoryScreen } from "../screens/history/ServicesHistoryScreen";
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {

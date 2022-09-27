@@ -6,13 +6,13 @@ import CartegoryLogo from './CartegoryLogo';
 
 interface IProps {
     name: string;
-    image: categories;
+    image: string;
 }
 
 const CategoryCard = ({image, name}: IProps) => {
   return (
     
-    <View style={tw`my-3 p-3 max-w-sm items-center`}>
+    <View style={tw`my-3 p-3 items-center`}>
         <CartegoryLogo category={image}/>
         <Text style={tw`py-2 font-bold text-xl`}>{name}</Text>
     </View>

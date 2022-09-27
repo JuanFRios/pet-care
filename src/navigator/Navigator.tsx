@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 import { LoginScreen } from "../screens/LoginScreen";
 import { LoadingScreen } from "../screens/LoadingScreen";
 import TabNavigator from "./TabNavigator";
+import { ServicesProvider } from "../context/ServicesContext";
 
 const Stack = createStackNavigator();
 
@@ -13,7 +14,7 @@ export const Navigator = () => {
   const { status } = useContext(AuthContext);
 
   if (status === "checking") return <LoadingScreen />;
-  if (status === "authenticated") return <TabNavigator />;
+  if (status === "authenticated") return <ServicesProvider><TabNavigator /></ServicesProvider>;
 
   return (
     <Stack.Navigator

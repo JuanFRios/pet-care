@@ -6,7 +6,7 @@ import { categories } from '../../interfaces/appInterfaces';
 
 
 interface Iprops {
-    category: categories;
+    category: string;
 }
 
 const CartegoryLogo = ( {category}: Iprops ) => {

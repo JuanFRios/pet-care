@@ -14,9 +14,9 @@ export const LoginScreen = ({ navigation }: Props) => {
 
     const { signIn, errorMessage, removeError } = useContext( AuthContext );
 
-    const { usuario, contraseña, onChange } = useForm({
+    const { usuario, contrasena, onChange } = useForm({
        usuario: '',
-       contraseña: '' 
+       contrasena: '' 
     });
 
     useEffect(() => {
@@ -30,9 +30,8 @@ export const LoginScreen = ({ navigation }: Props) => {
     }, [ errorMessage ])
 
     const onLogin = () => {
-        console.log({usuario, contraseña});
         Keyboard.dismiss();
-        signIn({ usuario, contraseña });
+        signIn({ usuario, contrasena });
     }
 
     return (
@@ -52,9 +51,9 @@ export const LoginScreen = ({ navigation }: Props) => {
 
                     <Text style={ loginStyles.title }>Login</Text>
 
-                    <Text style={ loginStyles.label }>Email:</Text>
+                    <Text style={ loginStyles.label }>Usuario:</Text>
                     <TextInput 
-                        placeholder="Ingrese su email:"
+                        placeholder="Ingrese su usuario:"
                         placeholderTextColor="rgba(255,255,255,0.4)"
                         keyboardType="email-address"
                         underlineColorAndroid="white"
@@ -86,8 +85,8 @@ export const LoginScreen = ({ navigation }: Props) => {
                         ]}
                         selectionColor="white"
 
-                        onChangeText={ (value) => onChange(value, 'contraseña') }
-                        value={ contraseña }
+                        onChangeText={ (value) => onChange(value, 'contrasena') }
+                        value={ contrasena }
                         onSubmitEditing={ onLogin }
 
                         autoCapitalize="none"
@@ -102,7 +101,7 @@ export const LoginScreen = ({ navigation }: Props) => {
                             style={ loginStyles.button }
                             onPress={ onLogin }
                         >
-                            <Text style={ loginStyles.buttonText } >Iniciar sesiòn</Text>
+                            <Text style={ loginStyles.buttonText } >Iniciar sesión</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

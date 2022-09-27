@@ -58,16 +58,16 @@ export const AuthProvider = ({ children }: any)=> {
     }
 
 
-    const signIn = async({ usuario, contraseña }: LoginData ) => {
+    const signIn = async({ usuario, contrasena }: LoginData ) => {
 
         try {
          
-            const { data } = await petCareApi.post<LoginResponse>('/auth', { usuario, contraseña } );
+            const { data } = await petCareApi.post<LoginResponse>('/auth/login', { usuario, contrasena } );
             dispatch({ 
                 type: 'signUp',
                 payload: {
                     token: data.token,
-                    user: data.usuario
+                    user: data
                 }
             });
 
